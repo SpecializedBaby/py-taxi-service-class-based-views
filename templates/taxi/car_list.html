@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cars list</h1>
+  <ul class="list-group">
+    {% for car in car_list %}
+    <li class="list-group-item"><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></li>
+    {% empty %}
+      <p class="alert alert-warning">Our list of cars are empty!</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

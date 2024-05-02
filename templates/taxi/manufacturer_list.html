@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers list</h1>
+  <ul class="list-group">
+    {% for manufacturer in manufacturer_list %}
+      <li class="list-group-item">{{ manufacturer.name }} <span class="font-weight-bold">({{ manufacturer.country }})</span></li>
+      {% empty %}
+      <p class="alert alert-warning">Our list of manufacturers are empty!</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
