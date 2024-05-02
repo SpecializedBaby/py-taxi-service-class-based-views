@@ -28,11 +28,7 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
-    queryset = Driver.objects.prefetch_related("car")
-
-    def get_object(self, queryset=None):
-        username = self.kwargs.get("username", None)
-        return get_object_or_404(Driver, username=username)
+    queryset = Driver.objects.prefetch_related("cars")
 
 
 def index(request):
